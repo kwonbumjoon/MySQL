@@ -39,7 +39,6 @@ where rental_date between '2005-05-25' and '2005-05-26';
 
 select * from address
 where district in ('California', 'Texas');
-
 select * from address
 where district = 'California' or district = 'Texas';
 
@@ -100,17 +99,17 @@ show tables;
 desc actor;
 
 -- 함수
-select ceil(1.0), ceil(1.4), ceil(1.8), ceil(2.0);
+select ceil(1.0), ceil(1.4), ceil(1.8), ceil(2.0);		-- 올림
 
-select floor(1.0), floor(1.4), floor(1.8), floor(2.0);
+select floor(1.0), floor(1.4), floor(1.8), floor(2.0);		-- 내림
 
-select round(1.0), round(1.4), round(1.8), round(2.0);
+select round(1.0), round(1.4), round(1.8), round(2.0);		-- 반올림
 
-select round(1.1234567,1), round(1.1234567,3), round(1.1234567,5);
+select round(1.1234567,1), round(1.1234567,3), round(1.1234567,5);		-- 뒤의 숫자가 소수점 자릿수 어디까지 표현인지 나타냄
 
-select TRUNCATE(1.0,0), TRUNCATE(1.4,0), TRUNCATE(1.8,0), TRUNCATE(2.0,0);
+select TRUNCATE(1.0,0), TRUNCATE(1.4,0), TRUNCATE(1.8,0), TRUNCATE(2.0,0);		-- 소수점 버림
 
-select TRUNCATE(1.1234567,1), TRUNCATE(1.1234567,3), TRUNCATE(1.1234567,5);
+select TRUNCATE(1.1234567,1), TRUNCATE(1.1234567,3), TRUNCATE(1.1234567,5);		-- 위의 round랑 같음
 
 select abs(123), abs(-123), pow(2,3), sqrt(25), power(2,3), mod(10,3);
 
@@ -146,6 +145,7 @@ select current_date(), curtime();
 select year(now());
 select month(now());
 select day(now());
+select hour(now());
 
 select day(rental_date) from rental;
 
@@ -159,7 +159,7 @@ select * from actor;
 select count(*) from actor;
 select count(first_name) from actor;
 
-select count(address), count(address2) from address;
+select count(address), count(address2) from address;	-- 갯수 구하는데 null값 제외
 select * from address;
 
 select count(*), sum(store_id), avg(store_id) from customer;
